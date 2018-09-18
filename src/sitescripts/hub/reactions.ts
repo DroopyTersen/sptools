@@ -16,6 +16,18 @@ const handleAddAction = function(actionVerb, index) {
     }
 }
 
+const handleAddSubActtion = function(actionId, subActionVerb) {
+    try {
+        let action = hub.state.actions.find(a => a.id === actionId);
+        let actionDefinition = hub.state.actionDefinitions.find(a => a.verb === action.verb);
+        let subActionDefinition = actionDefinition.subactions.find(sa => sa.verb === subActionVerb);
+        action.subactions.push(createActionFromDefinition(subActionDefinition));
+
+    } catch (err) {
+        console.log("Unable to add Sub Action", err);
+    }
+}
+
 const handleReorderAction = function(actionId, newIndex) {
     let target = hub.state.actions.find(a => a.id === actionId);
     if (target) {
@@ -61,4 +73,5 @@ hub.on('actions:updateProperty', handleUpdateProperty);
 hub.on("actions:add", handleAddAction);
 hub.on("actions:remove", handleRemoveAction);
 hub.on("actions:reorder", handleReorderAction);
+hub.on("subactions:add", handleAddSubActtion);
 hub.on("json:update", handleJSONUpdate);
