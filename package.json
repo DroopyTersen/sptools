@@ -17,17 +17,20 @@
   "author": "Andrew Petersen",
   "license": "MIT",
   "dependencies": {
+    "@reach/router": "^1.1.1",
+    "@types/react": "^16.4.14",
     "@types/react-beautiful-dnd": "^7.1.1",
+    "@types/react-dom": "^16.0.7",
+    "code-mirror": "^4.0.1",
     "codemirror": "^5.39.2",
-    "hub-flow": "0.0.6",
-    "react": "^16.4.2",
+    "hamburgers": "^0.9.3",
+    "hub-flow": "^0.0.6",
+    "react": "^16.5.1",
     "react-beautiful-dnd": "^8.0.7",
     "react-codemirror": "^1.0.0",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.5.1"
   },
   "devDependencies": {
-    "@types/react": "^16.4.8",
-    "@types/react-dom": "^16.0.7",
     "node-sass": "^4.9.2",
     "parcel-bundler": "^1.9.7",
     "typescript": "^3.0.1"

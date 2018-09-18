@@ -37,7 +37,7 @@ export default class Code extends React.Component<CodeProps, {}> {
             lineNumbers: true,
             indentUnit: 4,
             indentWithTabs: true,
-            autofocus: true,
+            // autofocus: true,
             styleActiveLine:true,
             theme: "monokai",
         }, ...opts };

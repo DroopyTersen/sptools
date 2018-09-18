@@ -1,16 +1,16 @@
 import { ActionDefinition, SiteScriptAction } from "../data/interfaces";
 import actionDefinitions from "../data/schemaParser";
-import { FreezerObject } from "./hub";
 import { actionsFromJson } from "../data/actionUtils";
 import actionsJson from "./actionsJson";
+import { FreezerObject } from "../../entry";
 
-export interface ApplicationState extends FreezerObject{
+export interface SiteScriptAppState extends FreezerObject {
     actionDefinitions: ActionDefinition[],
     actions: SiteScriptAction[],
     json: string
 }
 
-let defaultState: ApplicationState = {
+let defaultState: SiteScriptAppState = {
     actionDefinitions: actionDefinitions,
     actions: actionsFromJson(actionsJson),
     json: actionsJson

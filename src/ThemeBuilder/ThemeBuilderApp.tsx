@@ -1,7 +1,6 @@
 import * as React from 'react';
 import hub from "./hub/hub";
 import "./hub/reactions";
-import Workspace from './components/Workspace';
 
 export default class SiteScriptsApp extends React.PureComponent<SiteScriptAppProps, {}> {
     componentDidMount() {
@@ -9,7 +8,9 @@ export default class SiteScriptsApp extends React.PureComponent<SiteScriptAppPro
     }
     render() {
         return (
-            <Workspace {...hub.state} />
+            <div>
+                Theme Builder
+            </div>
         );
     }
 }

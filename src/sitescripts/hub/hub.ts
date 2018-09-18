@@ -1,22 +1,9 @@
 import { createHub } from "hub-flow";
-import defaultState, { ApplicationState } from "./defaultState";
+import defaultState, { SiteScriptAppState } from "./defaultState";
+import { AppHub } from "../../entry";
 
-export interface FreezerObject {
-    toJS?(): any,
-    set?(newState: any): { now:() => void},
-    reset?(object:any): { now:() => void},
+export interface SiteScriptHub extends AppHub {
+    state: SiteScriptAppState
 }
 
-declare global {
-    interface Array<T> extends FreezerObject {}
-    interface Object extends FreezerObject {}
-}
-
-export interface Hub {
-    trigger(key: string, ...params: any[]) : void,
-    on(key: string, handler: (...params: any[]) => any)
-    cacheState(): void,
-    state: ApplicationState
-}
-
-export default createHub(defaultState, { cacheKey: "sptools-sitescriptmaker"}) as Hub;
+export default createHub(defaultState, { cacheKey: "sptools-sitescriptmaker"}) as SiteScriptHub;

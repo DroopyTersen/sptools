@@ -1,0 +1,44 @@
+.header {
+    display:flex;
+    align-items: center;
+    .hamburger {
+        position: relative;
+        z-index: 6;
+    }
+    .page-title {
+        margin: 0 0 0 10px;
+        color: #db7d70;
+        font-size: 30px;
+    }
+}
+.nav-menu {
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+    z-index: 5;
+    display: flex;
+    padding: 20px 0 75px;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform .2s ease-out, opacity .15s linear;
+    box-shadow: 1px 1px 4px rgba(0,0,0,.3);
+    &.is-active {
+        opacity: 1;
+        transform: translateY(0%);
+
+    }
+    .title {
+        color: #999;
+        font-size: 40px;
+        margin-bottom: 40px;
+    }
+    .link {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+}
