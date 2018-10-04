@@ -12,23 +12,27 @@
     box-sizing: border-box;
     z-index: 99;
     .header {
-        padding: 10px;
+        padding: 10px 20px;
         .title {
-            color: $white;
-            font-weight: 400;
-            font-size: 22px;
+            color: #fffffd;
+            font-weight: 300;
+            font-size: 23px;
+            position: relative;
+            left: -1px;
         }
         .subtitle {
             color: #E3E7D3;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 100;
-            letter-spacing: 1px;
-            line-height: 13px;
+            letter-spacing: 0px;
+            line-height: 20px;
+            font-family: consolas, 'courier new';
         }
     }
     .body {
-        padding: 10px;
+        padding: 10px 20px 20px 20px;
         background: $white;
+        border-radius: 0 0 3px 3px;
         .description {
             font-size: 14px;
             margin: 10px 0;
