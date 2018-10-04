@@ -4,9 +4,24 @@ import { Draggable } from 'react-beautiful-dnd';
 import ActionProperties from './ActionProperties';
 import "./Action.scss";
 import hub from '../../hub/hub';
+import Collapsible from '../../../components/Collapsible/Collapsible';
+import { IconButton } from "office-ui-fabric-react/lib/Button";
 export default class Action extends React.PureComponent<ActionProps, {}> {
+
     onRemove = () => {
         hub.trigger("actions:remove", this.props.action.id);
+    }
+    renderAction = (action:SiteScriptAction) => {
+        return (
+            <Collapsible title={action.id} startCollapsed={true}>
+                <ActionProperties action ={action} />
+                <IconButton 
+                    iconProps={{ iconName: "Delete" }}
+                    className="remove-action"
+                    onClick={this.onRemove}
+                />
+            </Collapsible>
+        );
     }
     render() {
         let { action, index } = this.props;
@@ -18,9 +33,8 @@ export default class Action extends React.PureComponent<ActionProps, {}> {
                         className={"action " + (snapshot.isDragging ? "dragging" : "")} 
                         {...provided.draggableProps} 
                         {...provided.dragHandleProps}>
-                        <h3>{action.id}</h3>
-                        <ActionProperties action={action} />
-                        <div className='remove-action' onClick={this.onRemove}>X</div>
+                        <div className="gripper"><i className="ms-Icon ms-Icon--GripperBarVertical"></i></div>
+                        {this.renderAction(action)}
                     </div>
                 )}
             </Draggable>

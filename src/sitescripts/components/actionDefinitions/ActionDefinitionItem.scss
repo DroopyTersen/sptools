@@ -5,7 +5,16 @@
     box-sizing: border-box;
     border-radius: 3px;
     &.dragging {
+        background: lighten($englishGreenL1, 10%);
+        color: $white;
+        box-shadow: $boxShadowDragging;
         .hover-card { display: none;}
+        .title {
+            color: $white;
+        }
+        .subtitle {
+            color: $eggShell;
+        }
     }
     .subtitle {
         font-size: 11px;

@@ -15,13 +15,13 @@ export default class ActionDefinitions extends React.PureComponent<ActionDefinit
     state = {
         filter: "",
     }
-    onFilterChange = (newValue) => {
-        this.setState({ filter: newValue })
+    onFilterChange = (e) => {
+        this.setState({ filter: e.target.value || "" })
     }
     render() {
         return (
             <div className='action-definitions'>
-                <div className='title'>Available Actions</div>
+                <div className='section-title'>Available Actions</div>
                 <div className='filter'>
                     <TextField value={this.state.filter} onChange={this.onFilterChange} placeholder="Filter..." />
                 </div>
