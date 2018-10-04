@@ -44,13 +44,28 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                     onChanged={this.onToggleChanged}
                 />
             )
+        } else if (property.type === "object") {
+            return (
+                <TextField 
+                    label={property.title} 
+                    value={JSON.stringify(property.value, null, "  ")} 
+                    onChange={this.onChange}
+                    multiline={true}
+                    rows={6}
+                    autoAdjustHeight={true} 
+                />
+            )
         }
         else {
+            let isMultiline = (property.value && property.value.length > 60)
             return (
                 <TextField 
                     label={property.title} 
                     value={property.value} 
-                    onChange={this.onChange} 
+                    onChange={this.onChange}
+                    multiline={isMultiline}
+                    rows={6}
+                    autoAdjustHeight={isMultiline} 
                 />
             );
 
