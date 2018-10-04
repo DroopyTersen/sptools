@@ -47,7 +47,7 @@
     }
     .remove-action {
         position: absolute;
-        top: 5px;
+        top: 9px;
         right: 10px;
         font-size: 24px;
         color: $brickRed;
@@ -59,11 +59,12 @@
         }
     }
     .collapsible .sectionTitle {
-        color: $englishGreenL1;
-        line-height: 19px;
-        font-weight: 400;
+        color: $darkLiver;
+        line-height: 15px;
+        font-weight: 500;
+        margin: 6px 0;
         &:hover {
-            color: darken($englishGreenL1, 30%);
+            color: lighten($englishGreenL1, 10%);
         }
     
     }
