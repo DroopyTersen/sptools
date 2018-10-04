@@ -41,6 +41,7 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                     onText="Yes"
                     offText="No"
                     label={property.title}
+                    className="toggle"
                     onChanged={this.onToggleChanged}
                 />
             )
