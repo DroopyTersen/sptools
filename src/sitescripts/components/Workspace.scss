@@ -6,14 +6,18 @@ html, body, #root {
     margin: 0;
     font-family: "Lucida Console", courier, sans-serif;;
 }
-.workspace {
-    display:flex;
+.app {
+    padding: 10px;
     min-height: 100%;
-    >*{
-        &:first-child {
-            margin-left: 0;
+    .app-header {
+        .app-title {
+            font-weight: 100;
+            margin: 0;
         }
     }
+}
+.workspace {
+    display:flex;
 }
 
 .column {
@@ -22,7 +26,6 @@ html, body, #root {
     min-width: 200px;
     max-width: 30%;
     min-height: 200px;
-    padding: 5px;
     &.dragging {
         background: $eggShell;
     }

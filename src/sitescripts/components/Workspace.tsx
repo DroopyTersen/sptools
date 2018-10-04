@@ -33,17 +33,23 @@ export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
     }
     render() {
         return (
-            <DragDropContext 
-                onDragStart={this.onDragStart}
-                onDragUpdate={this.onDragUpdate}
-                onDragEnd={this.onDragEnd}>
-                <div className='workspace'>
-                    <ActionDefinitions actionDefinitions={this.props.actionDefinitions} />
-                    {/* <SiteScriptActions actions={this.props.actions} /> */}
-                    {/* <RemoveZone /> */}
-                    {/* <AdvancedEditor json={this.props.json} /> */}
+            <div className='app'>
+                <div className='app-header'>
+                    <h1 className='app-title'>Site Script Builder</h1>
                 </div>
-            </DragDropContext>
+                <DragDropContext 
+                    onDragStart={this.onDragStart}
+                    onDragUpdate={this.onDragUpdate}
+                    onDragEnd={this.onDragEnd}>
+                    <div className='workspace'>
+                        <ActionDefinitions actionDefinitions={this.props.actionDefinitions} />
+                        {/* <SiteScriptActions actions={this.props.actions} /> */}
+                        {/* <RemoveZone /> */}
+                        {/* <AdvancedEditor json={this.props.json} /> */}
+                    </div>
+                </DragDropContext>
+            
+            </div>
         );
     } 
 }

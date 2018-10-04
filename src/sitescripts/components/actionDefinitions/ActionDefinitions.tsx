@@ -23,7 +23,7 @@ export default class ActionDefinitions extends React.PureComponent<ActionDefinit
             <div className='action-definitions'>
                 <div className='title'>Available Actions</div>
                 <div className='filter'>
-                    <TextField value={this.state.filter} onChanged={this.onFilterChange} placeholder="Filter..." />
+                    <TextField value={this.state.filter} onChange={this.onFilterChange} placeholder="Filter..." />
                 </div>
                 <Droppable droppableId="action-definitions" isDropDisabled={true}>
                     {(provided, snapshot) => {
