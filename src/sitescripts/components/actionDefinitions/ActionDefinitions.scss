@@ -1,0 +1,14 @@
+@import "../variables.scss";
+
+.action-definitions {
+    > .title {
+        font-size: 18px;
+        font-weight: 100;
+        color: $englishGreenL1;
+        margin: 5px;
+
+    }
+    .filter {
+        margin: 5px;
+    }
+}
