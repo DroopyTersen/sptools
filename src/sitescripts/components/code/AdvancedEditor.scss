@@ -1,0 +1,27 @@
+@import "../variables.scss";
+.editor-container {
+    margin-left: 10px;
+    flex: 1 5 400px;
+    .CodeMirror-selected {
+        background: $whiteText;
+    }
+    .CodeMirror {
+        background: $white;
+        border: none;
+        border-radius: 3px;
+        pre {
+            color: #778;
+            .cm-string {
+                color: darken($brickRed, 5%);
+            }
+            .cm-string.cm-property {
+                color: lighten($englishGreen, 20%);
+                color: $englishGreenL1;
+            }
+            .cm-atom {
+                color: $darkLiver;
+            }
+
+        }
+    }
+}

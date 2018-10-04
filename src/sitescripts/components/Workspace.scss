@@ -42,8 +42,9 @@ html, body, #root {
 
 .sitescript-section {
     margin-left: 10px;
-    background: #f5f5f2;
+    background: lighten($englishGreenL1, 10%);
     padding: 10px;
     flex: 1;
     border-radius: 4px;
+    display: flex;
 }

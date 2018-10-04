@@ -60,6 +60,7 @@
     .collapsible .sectionTitle {
         color: $englishGreenL1;
         line-height: 19px;
+        font-weight: 400;
         &:hover {
             color: darken($englishGreenL1, 30%);
         }
