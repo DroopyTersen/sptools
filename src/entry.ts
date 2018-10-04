@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import App from "./AppShell/App";
+import SiteScriptApp from "./sitescripts/SiteScriptApp";
 
 export interface FreezerObject {
     toJS?(): any,
@@ -19,4 +20,4 @@ declare global {
     interface Object extends FreezerObject {}
 }
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+ReactDOM.render(React.createElement(SiteScriptApp), document.getElementById("root"));

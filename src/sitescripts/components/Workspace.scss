@@ -1,33 +1,51 @@
+@import "./variables.scss";
+
 html, body, #root {
+    background-color: $white;
     height: 100%;
     margin: 0;
     font-family: "Lucida Console", courier, sans-serif;;
 }
+.app {
+    padding: 10px;
+    min-height: 100%;
+    .app-header {
+        .app-title {
+            font-weight: 100;
+            margin: 0;
+        }
+    }
+}
 .workspace {
     display:flex;
-    min-height: 100%;
 }
-
+.section-title {
+    font-size: 16px;
+    font-weight: 100;
+    color: $englishGreenL1;
+    margin: 5px 0;
+}
 .column {
-
     display: flex;
     flex-direction: column;
     min-width: 200px;
     max-width: 30%;
     min-height: 200px;
-    background: #f1f1f1;
-    margin-right: 10px;
-    padding: 10px;
-    &.dragging {
-        background: #ddd;
-    }
     >* {
         padding: 10px;
-        border: 1px solid rgb(29, 40, 138);
-        background: #fff;
+        box-shadow: $boxShadow;
+        background: $white;
         margin-bottom: 5px;
-        &.dragging {
-            background:#96d5e9
-        }
+
     }
+}
+
+.sitescript-section {
+    margin-left: 10px;
+    margin-top: 10px;
+    background: lighten($englishGreenL1, 10%);
+    padding: 10px;
+    flex: 1;
+    border-radius: 4px;
+    display: flex;
 }

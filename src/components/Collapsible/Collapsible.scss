@@ -1,0 +1,18 @@
+.collapsible {
+    .sectionTitle {
+        cursor: pointer;
+        margin: 0;
+        font-size: 17px;
+        font-weight: 300;
+
+        i {
+            font-size: .55em;
+            margin-left: 3px;
+        }
+    }
+
+    .collapsed {
+        height: 0px;
+        overflow-y: hidden;
+    }
+}

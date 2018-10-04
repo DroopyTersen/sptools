@@ -1,18 +1,85 @@
-.action {
-    position: relative;
-}
-.remove-action {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 24px;
-    color: rgb(190, 27, 27);
-    font-weight: bold;
-    transition: opacity .1s ease-out;
-    padding: 5px;
-    opacity: .7;
-    cursor: pointer;
-    &:hover {
-        opacity: 1;
+@import "../variables.scss";
+.dragging {
+    .action {
+        background: #f8f8f4;
     }
 }
+.sitescript-section .action {
+    background: $white;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    &:hover {
+        .gripper {
+            i {
+                animation-duration: 300ms;
+                animation-timing-function: linear;
+                animation-iteration-count: 1;
+                animation-name: wiggle;
+                color: $englishGreenL1;
+            }
+        }
+    }
+    .gripper {
+        flex: 0 0 10px;
+        margin-left:-10px;
+        display: flex;
+        align-items: center;
+        i {
+            color: #ddd;
+            font-size: 18px;
+        }
+    }
+    &.dragging {
+        background: $white;
+        .sectionTitle {
+            color: $brickRed !important;
+        }
+        .gripper i {
+            color: $brickRed;
+        }
+    }
+    .collapsible {
+        width: 100%;
+    }
+    .remove-action {
+        position: absolute;
+        top: 9px;
+        right: 10px;
+        font-size: 24px;
+        color: $brickRed;
+        transition: opacity .1s ease-out;
+        opacity: .7;
+        &:hover {
+            color: $brickRed;
+            opacity: 1;
+        }
+    }
+    .collapsible .sectionTitle {
+        color: $darkLiver;
+        line-height: 15px;
+        font-weight: 500;
+        margin: 6px 0;
+        &:hover {
+            color: lighten($englishGreenL1, 10%);
+        }
+    
+    }
+}
+
+@keyframes wiggle {
+    0% { transform: translate(.4px, 0) rotate(0deg); }
+    // 10% { transform: translate(-1px, 0); }
+    // 20% { transform: translate(1px, 0); }
+    30% { transform: translate(-.6px, 0) rotate(3deg); }
+    // 40% { transform: translate(1px, 0); }
+    // 50% { transform: translate(-1px, 0); }
+    60% { transform: translate(.3px, 0); }
+    // 70% { transform: translate(-1px, 0); }
+    // 80% { transform: translate(1px, 0); }
+    90% { transform: translate(-.5px, 0) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
