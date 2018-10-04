@@ -26,7 +26,7 @@ export default class ActionDefinitionItem extends React.PureComponent<ActionDefi
                         {...provided.dragHandleProps}>
                         <div className='title' onMouseOver={this.openHoverPanel} onMouseLeave={this.closeHoverHoverPanel}>
                             {action.title}
-                            { action.verb === "associateExtension" && <ActionDefinitionHoverCard action={action} />}
+                            { this.state.isHovering && <ActionDefinitionHoverCard action={action} />}
                         </div>
                         <div className='subtitle'>{action.verb}</div>
                         {/* <p className='description'>{action.description}</p> */}
