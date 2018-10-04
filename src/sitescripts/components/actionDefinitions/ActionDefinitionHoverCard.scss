@@ -1,0 +1,67 @@
+@import "../variables.scss";
+
+.action-definition .hover-card {
+    position: absolute;
+    left: 95%;
+    top: -80px;
+    // padding: 10px;
+    box-shadow: -2px 1px 13px rgba(0,0,0,.3);
+    border-radius: 3px;
+    background: $englishGreenL1;
+    width: 650px;
+    box-sizing: border-box;
+    z-index: 99;
+    .header {
+        padding: 10px;
+        .title {
+            color: $white;
+            font-weight: 400;
+            font-size: 22px;
+        }
+        .subtitle {
+            color: #E3E7D3;
+            font-size: 13px;
+            font-weight: 100;
+            letter-spacing: 1px;
+            line-height: 13px;
+        }
+    }
+    .body {
+        padding: 10px;
+        background: $white;
+        .description {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .properties {
+            .title {
+                font-size: 14px;
+                margin: 10px 0 5px 0;
+                color: $grayText;
+                letter-spacing: 1px;
+            }
+            $tableBorderColor: darken($whiteText, 5%);
+            table {
+                font-size: 13px;
+                background: $white;
+                color: $blackText;
+                border-radius: 2px;
+                width: 100%;
+                border-top: 1px solid $tableBorderColor;
+                // border-right: 1px solid $tableBorderColor;
+                th {
+                    text-align: left;
+                }
+                tr {
+                    border-top: 1px solid $tableBorderColor;
+                }
+                tr td:first-child {
+                    font-weight: bold;
+                }
+                td {
+                    padding: 10px 15px 10px 0px;
+                }
+            }
+    }
+    }
+}

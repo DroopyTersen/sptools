@@ -1,11 +1,8 @@
 import * as React from "react";
 import CodeMirror from "react-codemirror";
-import "codemirror/addon/selection/active-line.js"
+import "codemirror/addon/selection/active-line.js";
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/javascript/javascript";
-// import "codemirror/mode/jsx/jsx";
-// import "codemirror/mode/sass/sass";
-import "codemirror/theme/monokai.css";
 import "./Code.scss";
 
 export default class Code extends React.Component<CodeProps, {}> {

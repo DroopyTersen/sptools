@@ -25,6 +25,7 @@
     "codemirror": "^5.39.2",
     "hamburgers": "^0.9.3",
     "hub-flow": "^0.0.6",
+    "office-ui-fabric-react": "^6.77.0",
     "react": "^16.5.1",
     "react-beautiful-dnd": "^8.0.7",
     "react-codemirror": "^1.0.0",
