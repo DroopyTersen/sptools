@@ -1,20 +1,35 @@
 import * as React from 'react';
 import { ActionDefinition } from '../../data/interfaces';
 import { Draggable } from 'react-beautiful-dnd';
+import PropertiesTable from './PropertiesTable';
+import ActionDefinitionHoverCard from './ActionDefinitionHoverCard';
 require("./ActionDefinitionItem.scss");
 export default class ActionDefinitionItem extends React.PureComponent<ActionDefinitionItemProps, {}> {
+    state = {
+        isHovering: false
+    }
+    openHoverPanel = () => this.setState({ isHovering: true })
+    closeHoverHoverPanel = () => this.setState({ isHovering: false })
+
+    renderExandedHoverCard = () => {
+        return 
+    }
     render() {
         let { action, index } = this.props;
         return (
             <Draggable key={action.verb} draggableId={action.verb} index={index}>
                 {(provided, snapshot) => (
-                    <div 
+                    <div
                         ref={provided.innerRef}
                         className={"action-definition " + (snapshot.isDragging ? "dragging" : "")} 
                         {...provided.draggableProps} 
                         {...provided.dragHandleProps}>
-                        {action.title}
-                        <p className='description'>{action.description}</p>
+                        <div className='title' onMouseOver={this.openHoverPanel} onMouseLeave={this.closeHoverHoverPanel}>
+                            {action.title}
+                            { this.state.isHovering && <ActionDefinitionHoverCard action={action} />}
+                        </div>
+                        <div className='subtitle'>{action.verb}</div>
+                        {/* <p className='description'>{action.description}</p> */}
                     </div>
                 )}
             </Draggable>

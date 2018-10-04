@@ -1,4 +1,7 @@
+@import "./variables.scss";
+
 html, body, #root {
+    background-color: $white;
     height: 100%;
     margin: 0;
     font-family: "Lucida Console", courier, sans-serif;;
@@ -6,28 +9,38 @@ html, body, #root {
 .workspace {
     display:flex;
     min-height: 100%;
+    >*{
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }
 
 .column {
-
     display: flex;
     flex-direction: column;
     min-width: 200px;
     max-width: 30%;
     min-height: 200px;
-    background: #f1f1f1;
-    margin-right: 10px;
-    padding: 10px;
+    padding: 5px;
     &.dragging {
-        background: #ddd;
+        background: $eggShell;
     }
     >* {
         padding: 10px;
-        border: 1px solid rgb(29, 40, 138);
-        background: #fff;
+        box-shadow: $boxShadow;
+        background: $white;
         margin-bottom: 5px;
         &.dragging {
-            background:#96d5e9
+            background: lighten($englishGreenL1, 10%);
+            color: $white;
+            box-shadow: $boxShadowDragging;
+            .title {
+                color: $white;
+            }
+            .subtitle {
+                color: $eggShell;
+            }
         }
     }
 }
