@@ -97,12 +97,18 @@ const _actionToJson = function(action:SiteScriptAction) : any {
                 } catch (err) {}
             }
             else if (property.type === "object") {
-                try {
-                    console.log(property.value)
-                    obj[property.id] = JSON.parse(property.value);
-                } catch(err) {
-                    obj[property.id] = { "ERROR": "Invalid JSON object" }
+                let value = property.value
+                if (typeof property.value === "string") {
+                    if (!property.value.trim()) value = {};
+                    else {
+                        try {
+                            value = JSON.parse(property.value);
+                        } catch(err) {
+                            value = { "ERROR": "Invalid JSON object" }
+                        }
+                    }
                 }
+                obj[property.id] = value;
             } 
         } 
         return obj;

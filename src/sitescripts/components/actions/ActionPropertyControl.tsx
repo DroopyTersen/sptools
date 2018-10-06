@@ -46,10 +46,18 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                 />
             )
         } else if (property.type === "object") {
+            let value = property.value;
+            try {
+                if (typeof value === "object") {
+                    value = JSON.stringify(value, null, "  ")
+                }
+            } catch(err) {
+                //couldn't
+            }
             return (
                 <TextField 
                     label={property.title} 
-                    value={JSON.stringify(property.value, null, "  ")} 
+                    value={value} 
                     onChange={this.onChange}
                     multiline={true}
                     rows={6}
