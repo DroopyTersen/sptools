@@ -1,7 +1,10 @@
 import hub from "./hub";
-import { SiteScriptAction } from "../data/interfaces";
-import { actionsToJson, actionsFromJson, createActionFromDefinition, resetActionIds } from "../data/actionUtils";
-import actionDefinitions from "../data/schemaParser";
+import { 
+        actionsToJson, 
+        actionsFromJson, 
+        createActionFromDefinition, 
+        resetActionIds 
+    } from "../data/actionUtils";
 
 const handleAddAction = function(actionVerb, index) {
     let actionDefinition = hub.state.actionDefinitions.find(a => a.verb === actionVerb);
