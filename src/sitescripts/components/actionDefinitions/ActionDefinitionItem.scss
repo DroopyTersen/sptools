@@ -5,14 +5,11 @@
     box-sizing: border-box;
     border-radius: 3px;
     &.dragging {
-        border-left: 4px solid $blueYonder;
+        border-left: 4px solid $rajah;
         background: $floralWhite;
         color: $white;
         box-shadow: $boxShadowDragging;
         .hover-card { display: none;}
-        .title {
-            color: $spaceCadet;
-        }
     }
     .subtitle {
         font-size: 11px;
