@@ -1,8 +1,12 @@
 $darkLiver: rgba(78, 77, 92, 1);
 $brickRed: rgba(196, 59, 91, 1);
+$brickRed: #D19B27;
 $x11Gray: rgba(192, 188, 181, 1);
 $englishGreen: rgba(29, 76, 92, 1);
+$englishGreen: #122e54;
 $englishGreenL1: desaturate(lighten(rgba(29, 76, 92, 1), 15%), 15%);
+$englishGreenL1: #122e54;
+$englishGreen: #3C579B;
 $eggShell: #E3E7D3;
 $grayText: #918e88;
 $blackText: #404045;
@@ -10,3 +14,13 @@ $whiteText: #f5f5f2;
 $white: #fffffd;
 $boxShadow: 0px 1px 4px rgba(0,0,0,.2);
 $boxShadowDragging: 1px 1px 6px rgba(0,0,0,.35);
+
+$gunMetal: rgba(37, 48, 66, 1);
+$spaceCadet: rgba(32, 59, 94, 1);
+$spaceCadetL1: desaturate(lighten($spaceCadet, 15%), 5%);
+$redwood: rgba(168, 87, 81, 1);
+$rajah: rgba(254, 185, 95, 1);
+$blueYonder: #4F7CA5;
+$floralWhite: rgb(255, 252, 248);
+
+// https://coolors.co/4e4d5c-c43b5b-c0bcb5-9f9aa4-1d4c5c

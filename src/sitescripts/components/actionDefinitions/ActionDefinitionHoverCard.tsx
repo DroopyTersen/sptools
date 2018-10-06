@@ -9,9 +9,9 @@ export default class ActionDefinitionHoverCard extends React.PureComponent<Actio
             <div className='hover-card'>
                 <div className='header'>
                     <div className='title'>{action.title}</div>
-                    <div className='subtitle'>{action.verb}</div>
                 </div>
                 <div className='body'>
+                    <div className='subtitle'>{action.verb}</div>
                     <p className='description'>{action.description}</p>
                     <div className='properties'>
                         <div className='title'>Properties</div>

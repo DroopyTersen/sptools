@@ -5,24 +5,22 @@
     box-sizing: border-box;
     border-radius: 3px;
     &.dragging {
-        background: $brickRed;
+        border-left: 4px solid $blueYonder;
+        background: $floralWhite;
         color: $white;
         box-shadow: $boxShadowDragging;
         .hover-card { display: none;}
         .title {
-            color: $white;
-        }
-        .subtitle {
-            color: $eggShell;
+            color: $spaceCadet;
         }
     }
     .subtitle {
         font-size: 11px;
-        color: lighten($brickRed, 15%);
+        color: $redwood;
         letter-spacing: .7px;
     }
     .title {
-        color: $blackText;
+        color: $gunMetal;
         position: relative;
         // margin: 3px 0 5px 0;
     }

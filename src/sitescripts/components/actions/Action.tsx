@@ -16,7 +16,7 @@ export default class Action extends React.PureComponent<ActionProps, {}> {
             <Collapsible title={action.id} startCollapsed={true}>
                 <ActionProperties action ={action} />
                 <IconButton 
-                    iconProps={{ iconName: "Delete" }}
+                    iconProps={{ className: "ms-Icon ms-Icon--Delete" }}
                     className="remove-action"
                     onClick={this.onRemove}
                 />
