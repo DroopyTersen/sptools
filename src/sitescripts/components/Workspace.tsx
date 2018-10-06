@@ -35,7 +35,7 @@ export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
         return (
             <div className='app'>
                 <div className='app-header'>
-                    <h1 className='app-title'>Site Script Builder</h1>
+                    <h1 className='app-title'>Site Scripter</h1>
                 </div>
                 <DragDropContext 
                     onDragStart={this.onDragStart}

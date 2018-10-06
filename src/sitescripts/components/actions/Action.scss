@@ -39,11 +39,12 @@
     }
     &.dragging {
         background: $floralWhite;
+        border-left: 5px solid $rajah;
         .sectionTitle {
-            color: $redwood !important;
+            // color: $redwood !important;
         }
         .gripper i {
-            color: $redwood;
+            // color: $redwood;
         }
     }
     .collapsible {
