@@ -26,6 +26,7 @@ export default class SubActions extends React.PureComponent<SubActionsProps, {}>
     }
     render() {
         let { action: { subactions } } = this.props;
+        console.log("ACTION", this.props.action);
         let subactionDefinitions = this.getSubActionDefinitions();
         if (!subactionDefinitions) return null;
          return (
@@ -39,9 +40,7 @@ export default class SubActions extends React.PureComponent<SubActionsProps, {}>
                     className="subaction-picker"
                 />
                 <div className='actions'>
-                    {this.props.action.subactions.map((subaction, index)=> (
-                        <Action action={subaction} index={index} />
-                    ))}
+                    { subactions && subactions.map(s => <div>{s.id}</div>) }
                 </div>
             </div>
         );
