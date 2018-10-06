@@ -31,6 +31,7 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                     label={property.title}
                     options={options}
                     selectedKey={property.value}
+                    required={property.isRequired}
                 />
             )
         } else if (property.type === "boolean") {
@@ -60,6 +61,7 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                     value={value} 
                     onChange={this.onChange}
                     multiline={true}
+                    required={property.isRequired}
                     rows={6}
                     autoAdjustHeight={true} 
                 />
@@ -73,6 +75,7 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                     value={property.value} 
                     onChange={this.onChange}
                     multiline={isMultiline}
+                    required={property.isRequired}
                     rows={6}
                     autoAdjustHeight={isMultiline} 
                 />
