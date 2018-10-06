@@ -6,6 +6,7 @@ import "./Action.scss";
 import hub from '../../hub/hub';
 import Collapsible from '../../../components/Collapsible/Collapsible';
 import { IconButton } from "office-ui-fabric-react/lib/Button";
+import SubActions from './SubActions/SubActions';
 export default class Action extends React.PureComponent<ActionProps, {}> {
 
     onRemove = () => {
@@ -15,6 +16,7 @@ export default class Action extends React.PureComponent<ActionProps, {}> {
         return (
             <Collapsible title={action.id} startCollapsed={true}>
                 <ActionProperties action ={action} />
+                <SubActions action={action} />
                 <IconButton 
                     iconProps={{ className: "ms-Icon ms-Icon--Delete" }}
                     className="remove-action"

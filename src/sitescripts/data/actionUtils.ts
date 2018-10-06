@@ -10,6 +10,7 @@ export function resetActionIds(actions:SiteScriptAction[]) : SiteScriptAction[] 
 export function createActionFromDefinition (actionDefinition:ActionDefinition) {
     let newAction = JSON.parse(JSON.stringify(actionDefinition)) as SiteScriptAction
     _setDefaultRequiredPropertyValues(newAction);
+    if (newAction.subactions) newAction.subactions = [];
     return newAction;
 }
 function _setDefaultRequiredPropertyValues(action:SiteScriptAction) {
