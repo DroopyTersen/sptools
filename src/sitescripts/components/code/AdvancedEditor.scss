@@ -3,20 +3,19 @@
     margin-left: 10px;
     flex: 1 5 400px;
     .CodeMirror-selected {
-        background: $whiteText;
+        background: #f4f3f4;
     }
     .CodeMirror {
         background: $white;
         border: none;
         border-radius: 3px;
         pre {
-            color: #778;
+            color: $gunMetal;
             .cm-string {
-                color: darken($brickRed, 5%);
+                color: $redwood;
             }
             .cm-string.cm-property {
-                color: lighten($englishGreen, 20%);
-                color: $englishGreenL1;
+                color: $spaceCadetL1;
             }
             .cm-atom {
                 color: $darkLiver;
