@@ -6,7 +6,7 @@ import { Fabric } from 'office-ui-fabric-react/lib/Fabric';
 
 export default class SiteScriptsApp extends React.PureComponent<SiteScriptAppProps, {}> {
     componentWillMount() {
-        if (window.location.host.indexOf("netlify")){
+        if (window.location.host.indexOf("netlify") > -1){
             (window as any).appInsights.trackPageView("SiteScripter");
         }
     }
