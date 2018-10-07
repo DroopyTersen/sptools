@@ -20,7 +20,7 @@ export default class Action extends React.PureComponent<ActionProps, {}> {
     renderAction = (action:SiteScriptAction) => {
         return (
             <Collapsible title={action.id} startCollapsed={true}>
-                <ActionProperties action ={action} />
+                <ActionProperties action ={action} parentActionId={this.props.parentActionId} />
                 <SubActions action={action} />
                 <IconButton 
                     iconProps={{ className: "ms-Icon ms-Icon--Delete" }}

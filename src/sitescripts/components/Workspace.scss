@@ -36,11 +36,30 @@ html, body, #root {
 }
 
 .sitescript-section {
-    margin-left: 10px;
-    margin-top: 10px;
-    background: $spaceCadet;
-    padding: 10px;
-    flex: 1;
-    border-radius: 4px;
+    margin: 10px;
     display: flex;
+    flex-direction: column;
+    margin-top: 1px;
+
+    .sitescript-name {
+        margin-bottom: 7px;
+        max-width: 300px;
+        .is-active .ms-TextField-wrapper {
+            border-bottom-color: $blueYonder;
+        }
+        .ms-TextField-fieldGroup {
+            height: 30px;
+            input {
+                font-size: 17px;
+                font-weight: 200;
+                padding-left: 0;
+            }
+        }
+    }
+    .sitescript-content {
+        background: $spaceCadet;
+        padding: 10px;
+        border-radius: 4px;
+        display: flex;
+    }
 }

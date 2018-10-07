@@ -7,12 +7,14 @@ import { FreezerObject } from "../../entry";
 export interface SiteScriptAppState extends FreezerObject {
     actionDefinitions: ActionDefinition[],
     actions: SiteScriptAction[],
-    json: string
+    json: string,
+    scriptName: string,
 }
 
 let defaultState: SiteScriptAppState = {
     actionDefinitions: actionDefinitions,
     actions: actionsFromJson(actionsJson),
-    json: actionsJson
+    json: actionsJson,
+    scriptName: ""
 }
 export default defaultState;

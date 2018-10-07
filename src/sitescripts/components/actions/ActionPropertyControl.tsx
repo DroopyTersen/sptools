@@ -8,18 +8,20 @@ import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
 
 
 export default class ActionPropertyControl extends React.PureComponent<ActionPropertyControlProps, {}> {
+    triggerUpdate = (newValue) => {
+        let { actionId, parentActionId, property } = this.props;
+        if (this.props.parentActionId) {
+            hub.trigger("subactions:updateProperty", parentActionId, actionId, property.id, newValue);
+        } else {
+            hub.trigger("actions:updateProperty", actionId, property.id, newValue);
+        }
+    }
     onChange = (e) => {
         let target = e.currentTarget || e.target || e.key;
-        let value = target.value;
-        if (this.props.property.type === "boolean") value = !target.checked;
-        hub.trigger("actions:updateProperty", this.props.parentActionId, this.props.property.id, value || "");
-    }
-    onToggleChanged = (newValue) => {
-        console.log(newValue);
-        hub.trigger("actions:updateProperty", this.props.parentActionId, this.props.property.id, newValue);
+        this.triggerUpdate(target.value || "");
     }
     onDropdownChanged = (option) => {
-        hub.trigger("actions:updateProperty", this.props.parentActionId, this.props.property.id, option.key);
+        this.triggerUpdate(option.key);
     }
     renderInput = () => {
         let property = this.props.property;
@@ -43,7 +45,7 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
                     offText="No"
                     label={property.title}
                     className="toggle"
-                    onChanged={this.onToggleChanged}
+                    onChanged={this.triggerUpdate}
                 />
             )
         } else if (property.type === "object") {
@@ -96,5 +98,6 @@ export default class ActionPropertyControl extends React.PureComponent<ActionPro
 
 export interface ActionPropertyControlProps {
     property: ActionProperty,
-    parentActionId: string,
+    actionId: string,
+    parentActionId?:string
 }

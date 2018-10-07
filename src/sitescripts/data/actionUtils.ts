@@ -4,7 +4,7 @@ import actionDefinitions from "./schemaParser";
 
 
 export function resetActionIds(actions:SiteScriptAction[]) : SiteScriptAction[] {
-    return actions.map((a,i) => ({ ...a, ...{ id: `${i + 1}) ${a.verb}`}}));
+    return actions.map((a,i) => ({ ...a, ...{ id: `${i + 1}. ${a.verb}`}}));
 }
 
 export function createActionFromDefinition (actionDefinition:ActionDefinition) {

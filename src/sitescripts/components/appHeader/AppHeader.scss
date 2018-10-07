@@ -39,6 +39,12 @@
                     color: $redwood;
                 }
             }
+            &.is-disabled {
+                color: #777;
+                i {
+                    color: #999;
+                }
+            }
         }
     }
 }

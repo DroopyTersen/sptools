@@ -8,16 +8,10 @@ import AdvancedEditor from './code/AdvancedEditor';
 require("./Workspace.scss");
 import { IconButton } from 'office-ui-fabric-react/lib/Button';
 import AppHeader from './appHeader/AppHeader';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
 export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
-    onDragStart = (dragStart:DragStart) => {
-        console.log("START", dragStart);
-    }
-    onDragUpdate = (dragUpdate: DragUpdate) => {
-        console.log("Update", dragUpdate)
-    }
     onDragEnd = (result:DropResult) => {
-        console.log("DROP", result)
         if (!result.destination) return;
 
         // Add new action
@@ -35,22 +29,27 @@ export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
             hub.trigger("subactions:reorder", parentActionId, subActionId, result.destination.index);
         }
     }
+    onNameChange = (newName) => {
+        hub.trigger("script:rename", newName);
+    }
     render() {
         return (
             <div className='app'>
-                <AppHeader />
+                <AppHeader scriptName={hub.state.scriptName} />
                 <DragDropContext 
-                    onDragStart={this.onDragStart}
-                    onDragUpdate={this.onDragUpdate}
                     onDragEnd={this.onDragEnd}>
                     <div className='workspace'>
                         <ActionDefinitions actionDefinitions={this.props.actionDefinitions} />
                         <div className='sitescript-section'>
                             {/* <div className='section-title'>Site Script</div> */}
-                            <SiteScriptActions actions={this.props.actions} />
-                            <AdvancedEditor json={this.props.json} />
+                            <div className='sitescript-name'>
+                                <TextField underlined={true} placeholder="Site Script Name..." value={hub.state.scriptName} onChanged={this.onNameChange}  />
+                            </div>
+                            <div className='sitescript-content'>
+                                <SiteScriptActions actions={this.props.actions} />
+                                <AdvancedEditor json={this.props.json} />
+                            </div>
                         </div>
-                        {/* <RemoveZone /> */}
                     </div>
                 </DragDropContext>
             
