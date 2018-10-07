@@ -2,6 +2,7 @@
 .editor-container {
     margin-left: 10px;
     flex: 1 5 400px;
+    min-width: 500px;
     .CodeMirror-selected {
         background: #f4f3f4;
     }
