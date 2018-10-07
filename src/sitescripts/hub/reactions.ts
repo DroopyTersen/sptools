@@ -19,6 +19,21 @@ const handleAddAction = function(actionVerb, index) {
     }
 }
 
+const handleRemoveSubAction = function(actionId, subActionId) {
+    console.log("remove sub", actionId, subActionId);
+    try {
+        let targetAction = hub.state.actions.find(a => a.id === actionId);
+        let subactions = targetAction.subactions.filter(sa => sa.id !== subActionId);
+        subactions = resetActionIds(subactions);
+        targetAction.set({ subactions });
+        hub.state.set({
+            json: actionsToJson(hub.state.actions)
+        })
+        hub.cacheState();
+    } catch (err) {
+        console.log("Unable to remove Sub Action", err);
+    }
+}
 const handleAddSubAction = function(actionId, subActionVerb) {
     try {
         let action = hub.state.actions.find(a => a.id === actionId);
@@ -39,6 +54,24 @@ const handleAddSubAction = function(actionId, subActionVerb) {
     }
 }
 
+const handleReorderSubAction = function(actionId, subActionId, newIndex) {
+    try {
+        let parentAction = hub.state.actions.find(a => a.id === actionId);
+        let targetSubaction = parentAction.subactions.find(sa => sa.id === subActionId);
+        if (targetSubaction) {
+            let subactions = parentAction.subactions.filter(sa => sa.id !== subActionId);
+            subactions.splice(newIndex, 0, targetSubaction);
+            subactions = resetActionIds(subactions);
+            parentAction.set({ subactions }).now();
+            hub.state.set({
+                json: actionsToJson(hub.state.actions)
+            }).now();
+            hub.cacheState();
+        }
+    } catch (err) {
+        console.log("Unable to reorder subactions");
+    }
+}
 const handleReorderAction = function(actionId, newIndex) {
     let target = hub.state.actions.find(a => a.id === actionId);
     if (target) {
@@ -86,3 +119,5 @@ hub.on("actions:remove", handleRemoveAction);
 hub.on("actions:reorder", handleReorderAction);
 hub.on("json:update", handleJSONUpdate);
 hub.on("subactions:add", handleAddSubAction);
+hub.on("subactions:remove", handleRemoveSubAction);
+hub.on("subactions:reorder", handleReorderSubAction);

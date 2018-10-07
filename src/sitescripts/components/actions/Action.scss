@@ -17,8 +17,8 @@
         animation-timing-function: linear;
         animation-iteration-count: 1;
         animation-name: wiggle2;
-        .gripper {
-            i {
+        >.gripper {
+            >i {
                 animation-duration: 350ms;
                 animation-timing-function: linear;
                 animation-iteration-count: 1;
@@ -40,12 +40,12 @@
     &.dragging {
         background: $floralWhite;
         border-left: 5px solid $rajah;
-        .sectionTitle {
-            // color: $redwood !important;
-        }
-        .gripper i {
-            // color: $redwood;
-        }
+        // .sectionTitle {
+        //     // color: $redwood !important;
+        // }
+        // .gripper i {
+        //     // color: $redwood;
+        // }
     }
     .collapsible {
         width: 100%;

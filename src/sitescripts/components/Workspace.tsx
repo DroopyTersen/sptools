@@ -17,6 +17,7 @@ export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
         console.log("Update", dragUpdate)
     }
     onDragEnd = (result:DropResult) => {
+        console.log("DROP", result)
         if (!result.destination) return;
 
         // Add new action
@@ -27,9 +28,11 @@ export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
         else if (result.source.droppableId === "actions" && result.destination.droppableId === "actions") {
             hub.trigger("actions:reorder", result.draggableId, result.destination.index);
         }
-        // Remove
-        else if (result.source.droppableId === "actions" && result.destination.droppableId === "remove-zone") {
-            hub.trigger("actions:remove", result.draggableId);
+        // sub action reorder
+        else if (result.source.droppableId.indexOf("subactions-") === 0 ) {
+            let parentActionId = result.source.droppableId.replace("subactions-", "");
+            let subActionId = result.draggableId;
+            hub.trigger("subactions:reorder", parentActionId, subActionId, result.destination.index);
         }
     }
     render() {

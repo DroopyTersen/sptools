@@ -1,10 +1,11 @@
 @import "../../variables.scss";
 
 .subactions {
-    // position: relative;
+    position: relative;
     
-    // .actions {
-    //     padding: 5px;
-    //     background: $floralWhite;
-    // }
+    .actions.column {
+        padding: 10px 5px;
+        min-width: 100%;
+        box-sizing: border-box;
+    }
 }

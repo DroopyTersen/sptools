@@ -53,7 +53,6 @@ function _actionFromJson(rawAction:any) : SiteScriptAction {
     _copyProperties(rawAction, action);
 
     if (rawAction.subactions) {
-        console.log("sub actions", rawAction.subactions);
         action.subactions = rawAction.subactions.map(rawSubAction => {
             let subActionDefinition = definition.subactions.find(sa => sa.verb === rawSubAction.verb);
             if (!subActionDefinition) return null;
@@ -62,9 +61,7 @@ function _actionFromJson(rawAction:any) : SiteScriptAction {
             return subaction;
         }).filter(sa => sa);
         action.subactions = resetActionIds(action.subactions)
-        console.log("SUBACTOINS WITH ID", action.subactions);
     }
-    console.log("ACTION", action);
     return action;
 }
 
@@ -95,7 +92,6 @@ const _actionToJson = function(action:SiteScriptAction) : any {
         if (property.value !== undefined) {
             obj[property.id] = property.value;
             if (property.type === "boolean") {
-                console.log("bool", property.value);
                 obj[property.id] = property.value ? true : false
             }
             else if (property.type === "number") {
@@ -122,7 +118,6 @@ const _actionToJson = function(action:SiteScriptAction) : any {
     }, { verb: action.verb })
 
     if (action.subactions) {
-        console.log("HAS SUB ACTIONS", action.subactions);
         jsonAction.subactions = action.subactions.map(_actionToJson).filter(a => a);
     }
     return Object.keys(jsonAction).length > 1 ? jsonAction : null;

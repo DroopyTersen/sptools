@@ -12,13 +12,16 @@ const getClassNames = (snapshot:DroppableStateSnapshot) => {
 }
 export default class SiteScriptActions extends React.PureComponent<SiteScriptActionsProps, {}> {
     render() {
+        let droppableId = "actions";
+        if (this.props.parentActionId) droppableId = "subactions-" + this.props.parentActionId;
+    
         return (
-            <Droppable droppableId="actions">
+            <Droppable droppableId={droppableId}>
                 {(provided, snapshot) => {
                     return (
                         <div className={getClassNames(snapshot)} ref={provided.innerRef}>
                             {this.props.actions.map((action, index) => (
-                                <Action key={action.id} action={action} index={index} />
+                                <Action key={action.id} action={action} index={index} parentActionId={this.props.parentActionId} />
                             ))}
                         </div>
                     )
@@ -29,5 +32,6 @@ export default class SiteScriptActions extends React.PureComponent<SiteScriptAct
 }
 
 export interface SiteScriptActionsProps {
-    actions:SiteScriptAction[]
+    actions:SiteScriptAction[];
+    parentActionId?: string;
 }

@@ -10,7 +10,12 @@ import SubActions from './SubActions/SubActions';
 export default class Action extends React.PureComponent<ActionProps, {}> {
 
     onRemove = () => {
-        hub.trigger("actions:remove", this.props.action.id);
+        console.log("REMOVE", this.props);
+        if (this.props.parentActionId) {
+            hub.trigger("subactions:remove", this.props.parentActionId, this.props.action.id);
+        } else {
+            hub.trigger("actions:remove", this.props.action.id, );
+        }
     }
     renderAction = (action:SiteScriptAction) => {
         return (
@@ -47,4 +52,5 @@ export default class Action extends React.PureComponent<ActionProps, {}> {
 export interface ActionProps {
     action: SiteScriptAction,
     index:number,
+    parentActionId?: string,
 }

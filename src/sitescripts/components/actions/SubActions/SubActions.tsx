@@ -4,6 +4,8 @@ import { Dropdown } from "office-ui-fabric-react/lib/Dropdown";
 
 import hub from "../../../hub/hub";
 import Action from '../Action';
+import SiteScriptActions from '../SiteScriptActions';
+import "./SubActions.scss";
 export default class SubActions extends React.PureComponent<SubActionsProps, {}> {
     onAddSubAction = (option) => {
         if (option && option.key) {
@@ -26,12 +28,10 @@ export default class SubActions extends React.PureComponent<SubActionsProps, {}>
     }
     render() {
         let { action: { subactions } } = this.props;
-        console.log("ACTION", this.props.action);
         let subactionDefinitions = this.getSubActionDefinitions();
         if (!subactionDefinitions) return null;
          return (
             <div className='subactions'>
-                {/* <div>SubActions</div> */}
                 <Dropdown 
                     label="Subactions"
                     onChanged={this.onAddSubAction}
@@ -39,9 +39,7 @@ export default class SubActions extends React.PureComponent<SubActionsProps, {}>
                     options={this.getOptions(subactionDefinitions)}
                     className="subaction-picker"
                 />
-                <div className='actions'>
-                    { subactions && subactions.map(s => <div>{s.id}</div>) }
-                </div>
+                <SiteScriptActions actions={subactions} parentActionId={this.props.action.id} />
             </div>
         );
     }
