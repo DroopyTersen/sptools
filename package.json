@@ -24,7 +24,6 @@
     "@uifabric/icons": "^6.1.1",
     "code-mirror": "^4.0.1",
     "codemirror": "^5.39.2",
-    "hamburgers": "^0.9.3",
     "hub-flow": "^0.0.6",
     "office-ui-fabric-react": "^6.77.0",
     "react": "^16.5.1",
