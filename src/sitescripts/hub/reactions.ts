@@ -136,7 +136,7 @@ const handleScriptRename = function(newName) {
 
 const handleScriptDownload = function() {
     let text = actionsToJson(hub.state.actions);
-    let filename = `${hub.state.scriptName}.json`
+    let filename = `${hub.state.scriptName || "SiteScript"}.json`
     var element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
     element.setAttribute('download', filename);

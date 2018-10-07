@@ -26,14 +26,14 @@ export default class AppHeader extends React.PureComponent<AppHeaderProps, {}> {
                     <ActionButton 
                         text="Save"
                         title={`Save "${this.props.scriptName}"`}
-                        disabled={!this.props.scriptName}
+                        // disabled={!this.props.scriptName}
                         iconProps={{ iconName: "Save"}}
                         onClick={this.onSave}
                     />
                     <ActionButton 
                         text="Download"
                         title={`Download "${this.props.scriptName}.json"`}
-                        disabled={!this.props.scriptName}
+                        // disabled={!this.props.scriptName}
                         iconProps={{ iconName: "Download"}}
                         onClick={this.onDownload}
                     />
