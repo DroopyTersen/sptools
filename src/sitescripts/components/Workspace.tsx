@@ -4,9 +4,10 @@ import { ActionDefinition, SiteScriptAction } from '../data/interfaces';
 import ActionDefinitions from './actionDefinitions/ActionDefinitions';
 import SiteScriptActions from './actions/SiteScriptActions';
 import hub from '../hub/hub';
-import RemoveZone from './removeZone/RemoveZone';
 import AdvancedEditor from './code/AdvancedEditor';
 require("./Workspace.scss");
+import { IconButton } from 'office-ui-fabric-react/lib/Button';
+import AppHeader from './appHeader/AppHeader';
 
 export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
     onDragStart = (dragStart:DragStart) => {
@@ -34,9 +35,7 @@ export default class Workspace extends React.PureComponent<WorkspaceProps, {}> {
     render() {
         return (
             <div className='app'>
-                <div className='app-header'>
-                    <h1 className='app-title'>Site Scripter</h1>
-                </div>
+                <AppHeader />
                 <DragDropContext 
                     onDragStart={this.onDragStart}
                     onDragUpdate={this.onDragUpdate}

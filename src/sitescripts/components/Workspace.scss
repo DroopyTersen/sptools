@@ -9,14 +9,9 @@ html, body, #root {
 .app {
     padding: 10px;
     min-height: 100%;
-    .app-header {
-        .app-title {
-            font-weight: 100;
-            margin: 0;
-        }
-    }
 }
 .workspace {
+    margin-top: 55px;
     display:flex;
 }
 .section-title {
